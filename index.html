@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="JAZC Marine Science Research Center — Advancing marine science in Bohol, Philippines through biodiversity research, marine mollusc studies, DNA sequencing, and water quality monitoring." />
+  <title>JAZC Marine Science Research Center</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-body">
+
+  <!-- ── Navigation ── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="nav-brand" aria-label="JAZC Marine Science Research Center home">
+        <span class="brand-icon" aria-hidden="true">🌊</span>
+        <span class="brand-text">
+          <span class="brand-name">JAZC Marine Science</span>
+          <span class="brand-sub">Research Center · Jagna, Bohol</span>
+        </span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu" role="menubar">
+        <li role="none"><a href="index.html"        class="nav-link active" role="menuitem" aria-current="page">Home</a></li>
+        <li role="none"><a href="research.html"     class="nav-link" role="menuitem">Research</a></li>
+        <li role="none"><a href="publications.html" class="nav-link" role="menuitem">Publications</a></li>
+        <li role="none"><a href="team.html"         class="nav-link" role="menuitem">Team</a></li>
+        <li role="none"><a href="news.html"         class="nav-link" role="menuitem">News</a></li>
+        <li role="none"><a href="contact.html"      class="nav-link" role="menuitem">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ── Hero ── -->
+    <section class="hero" aria-label="Hero banner">
+      <div class="hero-content">
+        <span class="hero-badge" aria-label="Institution type">Marine Research Institution</span>
+        <h1>JAZC Marine Science<br>Research Center</h1>
+        <p class="hero-tagline">Advancing Marine Science in Bohol, Philippines</p>
+        <p class="hero-location">
+          <span aria-hidden="true">📍</span>
+          Poblacion, Jagna, Bohol 6308, Philippines
+        </p>
+        <div class="hero-actions">
+          <a href="#mission" class="btn btn-primary btn-hero">Learn More</a>
+          <a href="research.html" class="btn btn-ghost btn-hero">Our Research</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Mission & Vision ── -->
+    <section class="mission-vision" id="mission" aria-labelledby="mv-title">
+      <div class="container">
+        <h2 class="section-title" id="mv-title">Mission &amp; Vision</h2>
+        <p class="section-subtitle">Guided by science, driven by a commitment to the conservation of Philippine marine ecosystems.</p>
+        <div class="mv-grid">
+          <div class="mv-card">
+            <div class="mv-icon" aria-hidden="true">🎯</div>
+            <h3>Our Mission</h3>
+            <p>To conduct rigorous, community-relevant marine science research that generates knowledge supporting the conservation, management, and sustainable use of Bohol's coastal and marine resources. We are committed to training the next generation of Filipino marine scientists and engaging local communities in stewardship of their seas.</p>
+          </div>
+          <div class="mv-card vision">
+            <div class="mv-icon" aria-hidden="true">🔭</div>
+            <h3>Our Vision</h3>
+            <p>To be a leading regional marine research institution in the Philippines, recognized for excellence in biodiversity science, molecular ecology, and evidence-based coastal management. We envision a future where the rich marine heritage of Bohol is understood, valued, and protected for generations to come.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Research Focus ── -->
+    <section class="focus-cards" aria-labelledby="focus-title">
+      <div class="container">
+        <h2 class="section-title" id="focus-title">Research Focus Areas</h2>
+        <p class="section-subtitle">Our interdisciplinary research spans four core domains of marine science.</p>
+        <div class="focus-grid">
+          <article class="focus-card" aria-label="Biodiversity research focus">
+            <span class="focus-icon" aria-hidden="true">🪸</span>
+            <h3>Biodiversity</h3>
+            <p>Systematic species surveys of coral reefs, seagrass beds, and intertidal zones in Bohol.</p>
+          </article>
+          <article class="focus-card" aria-label="Marine Molluscs research focus">
+            <span class="focus-icon" aria-hidden="true">🐚</span>
+            <h3>Marine Molluscs</h3>
+            <p>Taxonomy, distribution, and ecology of gastropods, bivalves, and cephalopods in Central Visayas.</p>
+          </article>
+          <article class="focus-card" aria-label="DNA Extraction and Sequencing research focus">
+            <span class="focus-icon" aria-hidden="true">🧬</span>
+            <h3>DNA Extraction &amp; Sequencing</h3>
+            <p>Molecular barcoding and phylogenetic analysis of marine organisms using COI and other gene markers.</p>
+          </article>
+          <article class="focus-card" aria-label="Water Quality research focus">
+            <span class="focus-icon" aria-hidden="true">💧</span>
+            <h3>Water Quality</h3>
+            <p>Monitoring physicochemical parameters and assessing their impact on reef health and biodiversity.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Latest News ── -->
+    <section class="latest-news" aria-labelledby="news-title">
+      <div class="container">
+        <h2 class="section-title" id="news-title">Latest News</h2>
+        <p class="section-subtitle">Updates from our research team, fieldwork, and laboratory.</p>
+        <div class="news-preview-grid" id="news-preview-container" aria-live="polite">
+          <div class="loading" role="status" aria-label="Loading news">
+            <div class="spinner" aria-hidden="true"></div>
+            <span>Loading latest news…</span>
+          </div>
+        </div>
+        <div class="section-cta">
+          <a href="news.html" class="btn btn-outline">View All News</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA Banner ── -->
+    <section class="cta-banner" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title">Collaborate With Us</h2>
+        <p>We welcome partnerships with universities, government agencies, NGOs, and international research institutions committed to marine conservation.</p>
+        <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-name">🌊 JAZC Marine Science Research Center</span>
+          <p>Advancing marine science research through rigorous fieldwork, laboratory analysis, and community-engaged conservation in Bohol, Philippines.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <address>
+            Poblacion, Jagna<br>
+            Bohol 6308, Philippines<br><br>
+            <a href="mailto:info@jazcmarine.ph">info@jazcmarine.ph</a>
+          </address>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <nav aria-label="Footer navigation">
+            <a href="research.html">Research Projects</a>
+            <a href="publications.html">Publications</a>
+            <a href="team.html">Our Team</a>
+            <a href="news.html">News &amp; Blog</a>
+            <a href="contact.html">Contact Us</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 JAZC Marine Science Research Center. All rights reserved.</p>
+        <p>Jagna, Bohol, Philippines</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Hamburger Menu ──
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks  = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!expanded));
+      navLinks.classList.toggle('open');
+    });
+
+    // Close menu on outside click
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        hamburger.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('open');
+      }
+    });
+
+    // ── Load Latest News ──
+    function formatDate(dateStr) {
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('en-PH', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    function getCategoryClass(cat) {
+      const map = {
+        'Field Work':       'field-work',
+        'Lab News':         'lab-news',
+        'Publications':     'publications',
+        'Research Updates': 'research-updates',
+      };
+      return map[cat] || 'research-updates';
+    }
+
+    async function loadLatestNews() {
+      const container = document.getElementById('news-preview-container');
+      try {
+        const res  = await fetch('news-data.json');
+        const news = await res.json();
+        const latest = news.slice(0, 3);
+
+        container.innerHTML = latest.map(item => `
+          <article class="news-preview-card">
+            <span class="news-category-tag ${getCategoryClass(item.category)}">${item.category}</span>
+            <h3>${item.title}</h3>
+            <p class="news-date"><span aria-hidden="true">📅</span> ${formatDate(item.date)}</p>
+            <p class="news-excerpt">${item.excerpt}</p>
+            <div class="news-preview-footer">
+              <a href="news.html" class="btn btn-outline btn-sm">Read More</a>
+            </div>
+          </article>
+        `).join('');
+      } catch (err) {
+        container.innerHTML = '<p class="no-results">Unable to load news. Please try again later.</p>';
+      }
+    }
+
+    loadLatestNews();
+  </script>
+</body>
+</html>

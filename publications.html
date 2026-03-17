@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Publications — JAZC Marine Science Research Center. Browse peer-reviewed journal articles on marine biodiversity, mollusc taxonomy, and water quality in Bohol." />
+  <title>Publications | JAZC Marine Science Research Center</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-body">
+
+  <!-- ── Navigation ── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="nav-brand" aria-label="JAZC Marine Science Research Center home">
+        <span class="brand-icon" aria-hidden="true">🌊</span>
+        <span class="brand-text">
+          <span class="brand-name">JAZC Marine Science</span>
+          <span class="brand-sub">Research Center · Jagna, Bohol</span>
+        </span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu" role="menubar">
+        <li role="none"><a href="index.html"        class="nav-link" role="menuitem">Home</a></li>
+        <li role="none"><a href="research.html"     class="nav-link" role="menuitem">Research</a></li>
+        <li role="none"><a href="publications.html" class="nav-link active" role="menuitem" aria-current="page">Publications</a></li>
+        <li role="none"><a href="team.html"         class="nav-link" role="menuitem">Team</a></li>
+        <li role="none"><a href="news.html"         class="nav-link" role="menuitem">News</a></li>
+        <li role="none"><a href="contact.html"      class="nav-link" role="menuitem">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ── Page Header ── -->
+    <header class="page-header" aria-labelledby="page-title">
+      <div class="container">
+        <h1 id="page-title">Publications</h1>
+        <p>Peer-reviewed scientific output from the JAZC Marine Science Research Center.</p>
+      </div>
+    </header>
+
+    <!-- ── Publications Section ── -->
+    <section style="background: var(--light-bg);" aria-labelledby="pubs-heading">
+      <div class="container">
+        <h2 id="pubs-heading" class="section-title">Journal Articles</h2>
+        <p class="section-subtitle">Search by title, author name, or publication year.</p>
+
+        <!-- Search Bar -->
+        <div class="search-bar" role="search" aria-label="Search publications">
+          <div class="search-input-wrap">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <label for="pub-search" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Search publications</label>
+            <input
+              type="search"
+              id="pub-search"
+              class="search-input"
+              placeholder="Search by title, author, or year…"
+              aria-controls="publications-container"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+
+        <!-- Results count -->
+        <p id="results-count" aria-live="polite" style="margin-bottom:20px;color:var(--muted);font-size:0.9rem;"></p>
+
+        <!-- Publications List -->
+        <div class="publications-list" id="publications-container" aria-live="polite" aria-label="Publications list">
+          <div class="loading" role="status" aria-label="Loading publications">
+            <div class="spinner" aria-hidden="true"></div>
+            <span>Loading publications…</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-name">🌊 JAZC Marine Science Research Center</span>
+          <p>Advancing marine science research through rigorous fieldwork, laboratory analysis, and community-engaged conservation in Bohol, Philippines.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <address>
+            Poblacion, Jagna<br>
+            Bohol 6308, Philippines<br><br>
+            <a href="mailto:info@jazcmarine.ph">info@jazcmarine.ph</a>
+          </address>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <nav aria-label="Footer navigation">
+            <a href="research.html">Research Projects</a>
+            <a href="publications.html">Publications</a>
+            <a href="team.html">Our Team</a>
+            <a href="news.html">News &amp; Blog</a>
+            <a href="contact.html">Contact Us</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 JAZC Marine Science Research Center. All rights reserved.</p>
+        <p>Jagna, Bohol, Philippines</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Hamburger ──
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks  = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!expanded));
+      navLinks.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        hamburger.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('open');
+      }
+    });
+
+    // ── Publications ──
+    let allPublications = [];
+
+    function formatAuthors(authors) {
+      return authors.join(', ');
+    }
+
+    // APA-style: Authors (Year). Title. Journal, Volume(Issue), Pages.
+    function buildAPACitation(pub) {
+      const authors = formatAuthors(pub.authors);
+      const journal = `<em>${pub.journal}</em>`;
+      let citation = `${authors} (${pub.year}). ${pub.title}. ${journal}`;
+      if (pub.volume) citation += `, <em>${pub.volume}</em>`;
+      if (pub.issue)  citation += `(${pub.issue})`;
+      if (pub.pages)  citation += `, ${pub.pages}`;
+      citation += '.';
+      return citation;
+    }
+
+    function renderPublications(pubs) {
+      const container  = document.getElementById('publications-container');
+      const countEl    = document.getElementById('results-count');
+
+      countEl.textContent = `Showing ${pubs.length} publication${pubs.length !== 1 ? 's' : ''}`;
+
+      if (pubs.length === 0) {
+        container.innerHTML = `
+          <div class="no-results">
+            <span class="no-results-icon" aria-hidden="true">📄</span>
+            No publications match your search.
+          </div>`;
+        return;
+      }
+
+      container.innerHTML = pubs.map(pub => `
+        <article class="pub-card" aria-label="Publication: ${pub.title}">
+          <h3 class="pub-title">${pub.title}</h3>
+          <p class="pub-authors">${formatAuthors(pub.authors)}</p>
+          <p class="pub-citation">${buildAPACitation(pub)}</p>
+          <a
+            href="${pub.doiUrl}"
+            class="pub-doi"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View DOI for ${pub.title} (opens in new tab)"
+          >
+            <span aria-hidden="true">🔗</span> DOI: ${pub.doi}
+          </a>
+        </article>
+      `).join('');
+    }
+
+    async function loadPublications() {
+      const container = document.getElementById('publications-container');
+      try {
+        const res       = await fetch('publications-data.json');
+        allPublications = await res.json();
+        renderPublications(allPublications);
+      } catch (err) {
+        container.innerHTML = '<p class="no-results">Unable to load publications. Please try again later.</p>';
+      }
+    }
+
+    // ── Search ──
+    document.getElementById('pub-search').addEventListener('input', (e) => {
+      const query = e.target.value.trim().toLowerCase();
+      if (!query) {
+        renderPublications(allPublications);
+        return;
+      }
+      const filtered = allPublications.filter(pub =>
+        pub.title.toLowerCase().includes(query) ||
+        pub.authors.some(a => a.toLowerCase().includes(query)) ||
+        String(pub.year).includes(query) ||
+        pub.journal.toLowerCase().includes(query)
+      );
+      renderPublications(filtered);
+    });
+
+    loadPublications();
+  </script>
+</body>
+</html>

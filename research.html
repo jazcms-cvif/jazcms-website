@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Research Projects — JAZC Marine Science Research Center. Explore our ongoing and completed research in biodiversity, marine molluscs, DNA studies, and water quality." />
+  <title>Research Projects | JAZC Marine Science Research Center</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-body">
+
+  <!-- ── Navigation ── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="nav-brand" aria-label="JAZC Marine Science Research Center home">
+        <span class="brand-icon" aria-hidden="true">🌊</span>
+        <span class="brand-text">
+          <span class="brand-name">JAZC Marine Science</span>
+          <span class="brand-sub">Research Center · Jagna, Bohol</span>
+        </span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu" role="menubar">
+        <li role="none"><a href="index.html"        class="nav-link" role="menuitem">Home</a></li>
+        <li role="none"><a href="research.html"     class="nav-link active" role="menuitem" aria-current="page">Research</a></li>
+        <li role="none"><a href="publications.html" class="nav-link" role="menuitem">Publications</a></li>
+        <li role="none"><a href="team.html"         class="nav-link" role="menuitem">Team</a></li>
+        <li role="none"><a href="news.html"         class="nav-link" role="menuitem">News</a></li>
+        <li role="none"><a href="contact.html"      class="nav-link" role="menuitem">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ── Page Header ── -->
+    <header class="page-header" aria-labelledby="page-title">
+      <div class="container">
+        <h1 id="page-title">Research Projects</h1>
+        <p>Exploring the depths of Bohol's marine ecosystems through rigorous scientific investigation.</p>
+      </div>
+    </header>
+
+    <!-- ── Projects Section ── -->
+    <section aria-labelledby="projects-heading" style="background: var(--light-bg);">
+      <div class="container">
+        <h2 id="projects-heading" class="section-title">Our Projects</h2>
+        <p class="section-subtitle">Filter by research category below.</p>
+
+        <!-- Filter Buttons -->
+        <div class="filter-bar" role="group" aria-label="Filter projects by category">
+          <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" data-filter="Biodiversity"    aria-pressed="false">🪸 Biodiversity</button>
+          <button class="filter-btn" data-filter="Marine Molluscs" aria-pressed="false">🐚 Marine Molluscs</button>
+          <button class="filter-btn" data-filter="DNA Studies"     aria-pressed="false">🧬 DNA Studies</button>
+          <button class="filter-btn" data-filter="Water Quality"   aria-pressed="false">💧 Water Quality</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projects-container" aria-live="polite" aria-label="Research projects">
+          <div class="loading" role="status" aria-label="Loading projects">
+            <div class="spinner" aria-hidden="true"></div>
+            <span>Loading projects…</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-name">🌊 JAZC Marine Science Research Center</span>
+          <p>Advancing marine science research through rigorous fieldwork, laboratory analysis, and community-engaged conservation in Bohol, Philippines.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <address>
+            Poblacion, Jagna<br>
+            Bohol 6308, Philippines<br><br>
+            <a href="mailto:info@jazcmarine.ph">info@jazcmarine.ph</a>
+          </address>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <nav aria-label="Footer navigation">
+            <a href="research.html">Research Projects</a>
+            <a href="publications.html">Publications</a>
+            <a href="team.html">Our Team</a>
+            <a href="news.html">News &amp; Blog</a>
+            <a href="contact.html">Contact Us</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 JAZC Marine Science Research Center. All rights reserved.</p>
+        <p>Jagna, Bohol, Philippines</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Hamburger ──
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks  = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!expanded));
+      navLinks.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        hamburger.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('open');
+      }
+    });
+
+    // ── Projects ──
+    let allProjects = [];
+
+    function formatDate(dateStr) {
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('en-PH', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    function renderProjects(projects) {
+      const container = document.getElementById('projects-container');
+      if (projects.length === 0) {
+        container.innerHTML = `
+          <div class="no-results" style="grid-column:1/-1">
+            <span class="no-results-icon" aria-hidden="true">🔍</span>
+            No projects found in this category.
+          </div>`;
+        return;
+      }
+
+      container.innerHTML = projects.map(p => {
+        const statusClass = p.status.toLowerCase();
+        return `
+          <article class="project-card" aria-label="Project: ${p.title}">
+            <div class="project-card-header">
+              <h3 class="project-title">${p.title}</h3>
+              <span class="status-badge ${statusClass}" role="status" aria-label="Status: ${p.status}">${p.status}</span>
+            </div>
+            <div class="project-meta">
+              <span class="meta-tag meta-category" aria-label="Category: ${p.category}">${p.category}</span>
+            </div>
+            <p class="project-researcher" aria-label="Lead researcher">
+              <span aria-hidden="true">👩‍🔬</span> ${p.leadResearcher}
+            </p>
+            <p class="project-description">${p.description}</p>
+            <p class="project-date">
+              <strong>Start Date:</strong> ${formatDate(p.startDate)}
+            </p>
+          </article>`;
+      }).join('');
+    }
+
+    async function loadProjects() {
+      const container = document.getElementById('projects-container');
+      try {
+        const res = await fetch('research-data.json');
+        allProjects = await res.json();
+        renderProjects(allProjects);
+      } catch (err) {
+        container.innerHTML = '<p class="no-results" style="grid-column:1/-1">Unable to load projects. Please try again later.</p>';
+      }
+    }
+
+    // ── Filter Buttons ──
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+
+        const filter = btn.dataset.filter;
+        const filtered = filter === 'all'
+          ? allProjects
+          : allProjects.filter(p => p.category === filter);
+        renderProjects(filtered);
+      });
+    });
+
+    loadProjects();
+  </script>
+</body>
+</html>

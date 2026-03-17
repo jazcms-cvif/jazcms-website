@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Biodiversity Assessment of Coral Reef Ecosystems in Jagna Bay",
+    "status": "Ongoing",
+    "category": "Biodiversity",
+    "leadResearcher": "Dr. Maria L. Santos",
+    "description": "A comprehensive survey of coral reef biodiversity in Jagna Bay, documenting species richness and community structure using belt transect and point-count methods. The study aims to establish baseline biodiversity data for long-term monitoring.",
+    "startDate": "2023-06-01"
+  },
+  {
+    "id": 2,
+    "title": "Taxonomy and Distribution of Marine Molluscs in the Bohol Sea",
+    "status": "Ongoing",
+    "category": "Marine Molluscs",
+    "leadResearcher": "Dr. Jose A. Reyes",
+    "description": "Systematic documentation of mollusc species diversity and spatial distribution patterns across selected intertidal and subtidal sites in the Bohol Sea, with focus on gastropods, bivalves, and cephalopods.",
+    "startDate": "2022-09-15"
+  },
+  {
+    "id": 3,
+    "title": "DNA Barcoding of Selected Marine Gastropods in Central Visayas",
+    "status": "Completed",
+    "category": "DNA Studies",
+    "leadResearcher": "Dr. Ana B. Cruz",
+    "description": "Molecular identification of marine gastropods using COI gene barcoding to resolve taxonomic ambiguities and establish reference sequences for Philippine marine species registered in BOLD and GenBank.",
+    "startDate": "2021-03-01"
+  },
+  {
+    "id": 4,
+    "title": "Water Quality Monitoring and Coral Health Index in Jagna Marine Sanctuary",
+    "status": "Ongoing",
+    "category": "Water Quality",
+    "leadResearcher": "Dr. Ramon C. Dela Paz",
+    "description": "Seasonal assessment of physicochemical water quality parameters — including temperature, salinity, turbidity, dissolved oxygen, and nutrient levels — and their correlation with coral health indices in the Jagna Marine Sanctuary.",
+    "startDate": "2023-01-10"
+  }
+]

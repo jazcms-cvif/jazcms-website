@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="News &amp; Blog — JAZC Marine Science Research Center. Research updates, field work reports, lab news, and publication announcements." />
+  <title>News &amp; Blog | JAZC Marine Science Research Center</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-body">
+
+  <!-- ── Navigation ── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="nav-brand" aria-label="JAZC Marine Science Research Center home">
+        <span class="brand-icon" aria-hidden="true">🌊</span>
+        <span class="brand-text">
+          <span class="brand-name">JAZC Marine Science</span>
+          <span class="brand-sub">Research Center · Jagna, Bohol</span>
+        </span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu" role="menubar">
+        <li role="none"><a href="index.html"        class="nav-link" role="menuitem">Home</a></li>
+        <li role="none"><a href="research.html"     class="nav-link" role="menuitem">Research</a></li>
+        <li role="none"><a href="publications.html" class="nav-link" role="menuitem">Publications</a></li>
+        <li role="none"><a href="team.html"         class="nav-link" role="menuitem">Team</a></li>
+        <li role="none"><a href="news.html"         class="nav-link active" role="menuitem" aria-current="page">News</a></li>
+        <li role="none"><a href="contact.html"      class="nav-link" role="menuitem">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ── Page Header ── -->
+    <header class="page-header" aria-labelledby="page-title">
+      <div class="container">
+        <h1 id="page-title">News &amp; Blog</h1>
+        <p>Research updates, field reports, laboratory news, and announcements from JAZC.</p>
+      </div>
+    </header>
+
+    <!-- ── News Section ── -->
+    <section style="background: var(--light-bg);" aria-labelledby="news-heading">
+      <div class="container">
+        <h2 id="news-heading" class="section-title">Latest Updates</h2>
+        <p class="section-subtitle">Filter by category to find the news that interests you.</p>
+
+        <!-- Category Filters -->
+        <div class="filter-bar" role="group" aria-label="Filter news by category">
+          <button class="filter-btn active" data-filter="all"              aria-pressed="true">All</button>
+          <button class="filter-btn" data-filter="Research Updates"        aria-pressed="false">🔬 Research Updates</button>
+          <button class="filter-btn" data-filter="Lab News"                aria-pressed="false">🧪 Lab News</button>
+          <button class="filter-btn" data-filter="Field Work"              aria-pressed="false">🤿 Field Work</button>
+          <button class="filter-btn" data-filter="Publications"            aria-pressed="false">📄 Publications</button>
+        </div>
+
+        <!-- News Grid -->
+        <div class="news-grid" id="news-container" aria-live="polite" aria-label="News articles">
+          <div class="loading" role="status" aria-label="Loading news" style="grid-column:1/-1">
+            <div class="spinner" aria-hidden="true"></div>
+            <span>Loading news…</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-name">🌊 JAZC Marine Science Research Center</span>
+          <p>Advancing marine science research through rigorous fieldwork, laboratory analysis, and community-engaged conservation in Bohol, Philippines.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <address>
+            Poblacion, Jagna<br>
+            Bohol 6308, Philippines<br><br>
+            <a href="mailto:info@jazcmarine.ph">info@jazcmarine.ph</a>
+          </address>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <nav aria-label="Footer navigation">
+            <a href="research.html">Research Projects</a>
+            <a href="publications.html">Publications</a>
+            <a href="team.html">Our Team</a>
+            <a href="news.html">News &amp; Blog</a>
+            <a href="contact.html">Contact Us</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 JAZC Marine Science Research Center. All rights reserved.</p>
+        <p>Jagna, Bohol, Philippines</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Article Modal ── -->
+  <div id="article-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(3,4,94,0.55);backdrop-filter:blur(4px);padding:24px;overflow-y:auto;">
+    <div style="background:white;border-radius:12px;max-width:720px;margin:40px auto;padding:48px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.25);">
+      <button id="modal-close" aria-label="Close article" style="position:absolute;top:20px;right:20px;background:var(--light-bg);border:none;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;color:var(--dark);transition:background 0.2s;">&times;</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script>
+    // ── Hamburger ──
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks  = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!expanded));
+      navLinks.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        hamburger.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('open');
+      }
+    });
+
+    // ── News ──
+    let allNews = [];
+
+    function formatDate(dateStr) {
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('en-PH', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    function getCategoryClass(cat) {
+      const map = {
+        'Field Work':       'field-work',
+        'Lab News':         'lab-news',
+        'Publications':     'publications',
+        'Research Updates': 'research-updates',
+      };
+      return map[cat] || 'research-updates';
+    }
+
+    function renderNews(newsItems) {
+      const container = document.getElementById('news-container');
+      if (newsItems.length === 0) {
+        container.innerHTML = `
+          <div class="no-results" style="grid-column:1/-1">
+            <span class="no-results-icon" aria-hidden="true">📰</span>
+            No news found in this category.
+          </div>`;
+        return;
+      }
+
+      container.innerHTML = newsItems.map(item => `
+        <article class="news-card" aria-label="News: ${item.title}">
+          <div class="news-card-header" style="padding:20px 24px;">
+            <span class="news-category-tag ${getCategoryClass(item.category)}">${item.category}</span>
+          </div>
+          <div class="news-card-body">
+            <p class="news-date"><span aria-hidden="true">📅</span> ${formatDate(item.date)}</p>
+            <h3>${item.title}</h3>
+            <p class="news-excerpt">${item.excerpt}</p>
+            <div class="news-card-footer">
+              <button
+                class="btn btn-primary btn-sm"
+                onclick="openArticle(${item.id})"
+                aria-label="Read full article: ${item.title}"
+              >Read More</button>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    async function loadNews() {
+      const container = document.getElementById('news-container');
+      try {
+        const res = await fetch('news-data.json');
+        allNews   = await res.json();
+        renderNews(allNews);
+      } catch (err) {
+        container.innerHTML = '<p class="no-results" style="grid-column:1/-1">Unable to load news. Please try again later.</p>';
+      }
+    }
+
+    // ── Filter ──
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+
+        const filter = btn.dataset.filter;
+        const filtered = filter === 'all'
+          ? allNews
+          : allNews.filter(n => n.category === filter);
+        renderNews(filtered);
+      });
+    });
+
+    // ── Modal ──
+    function openArticle(id) {
+      const item = allNews.find(n => n.id === id);
+      if (!item) return;
+      document.getElementById('modal-content').innerHTML = `
+        <span class="news-category-tag ${getCategoryClass(item.category)}" style="margin-bottom:16px;display:inline-block">${item.category}</span>
+        <h2 id="modal-title" style="color:var(--dark);margin-bottom:12px;line-height:1.4">${item.title}</h2>
+        <p style="color:var(--muted);font-size:0.88rem;margin-bottom:28px;display:flex;gap:6px;align-items:center">
+          <span aria-hidden="true">📅</span> ${formatDate(item.date)}
+        </p>
+        <div style="color:#444;line-height:1.9;font-size:0.96rem">${item.content}</div>
+      `;
+      const modal = document.getElementById('article-modal');
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      document.getElementById('modal-close').focus();
+    }
+
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.getElementById('article-modal').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('article-modal')) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    function closeModal() {
+      document.getElementById('article-modal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    loadNews();
+  </script>
+</body>
+</html>

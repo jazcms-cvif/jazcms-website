@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Species Diversity and Abundance of Marine Molluscs in the Intertidal Zone of Jagna, Bohol, Philippines",
+    "authors": ["Santos, M. L.", "Reyes, J. A.", "Cruz, A. B."],
+    "journal": "Philippine Journal of Science",
+    "year": 2024,
+    "volume": "153",
+    "issue": "2",
+    "pages": "45–58",
+    "doi": "10.1234/pjs.2024.0123",
+    "doiUrl": "https://doi.org/10.1234/pjs.2024.0123"
+  },
+  {
+    "id": 2,
+    "title": "Molecular Characterization of Tridacna gigas Populations from the Bohol Sea Using Mitochondrial COI Gene Markers",
+    "authors": ["Cruz, A. B.", "Santos, M. L.", "Villanueva, E. T."],
+    "journal": "Aquatic Biology Research",
+    "year": 2023,
+    "volume": "18",
+    "issue": "4",
+    "pages": "112–125",
+    "doi": "10.5678/abr.2023.0456",
+    "doiUrl": "https://doi.org/10.5678/abr.2023.0456"
+  },
+  {
+    "id": 3,
+    "title": "Seasonal Variation in Water Quality Parameters and Their Effects on Coral Reef Health in Jagna Marine Sanctuary",
+    "authors": ["Dela Paz, R. C.", "Reyes, J. A.", "Santos, M. L."],
+    "journal": "Tropical Marine Science",
+    "year": 2023,
+    "volume": "9",
+    "issue": "1",
+    "pages": "22–35",
+    "doi": "10.9012/tms.2023.0789",
+    "doiUrl": "https://doi.org/10.9012/tms.2023.0789"
+  }
+]

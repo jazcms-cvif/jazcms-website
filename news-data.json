@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "JAZC Team Completes Three-Month Biodiversity Survey of Jagna Bay",
+    "date": "2024-11-15",
+    "category": "Research Updates",
+    "excerpt": "The research team successfully completed a comprehensive three-month biodiversity survey of Jagna Bay, documenting over 120 marine species including rare molluscs, echinoderms, and coral species new to the provincial record.",
+    "content": "The JAZC Marine Science Research Center team wrapped up its intensive three-month biodiversity survey of Jagna Bay last November. Using belt transect and point-count methods, the team recorded 123 marine species across 12 survey sites. Notable findings include the first documented occurrence of Lambis truncula in Bohol waters and a thriving population of Tridacna crocea within the marine sanctuary boundaries. Data analysis is currently underway, and a full scientific report is expected by early 2025."
+  },
+  {
+    "id": 2,
+    "title": "New DNA Extraction Protocol Adopted for Tropical Marine Tissue Samples",
+    "date": "2024-09-30",
+    "category": "Lab News",
+    "excerpt": "The laboratory has validated and adopted a new, cost-effective DNA extraction protocol specifically optimized for marine tissue samples collected under tropical field conditions, improving yield and purity metrics significantly.",
+    "content": "After months of rigorous validation trials, the JAZC laboratory has officially adopted a modified CTAB-based DNA extraction protocol tailored for marine tissue samples. The new protocol addresses common challenges encountered in tropical fieldwork, such as sample degradation due to heat and humidity. Results show a 40% improvement in average DNA yield and a significant reduction in PCR inhibitors compared to the previous kit-based method. The protocol will be published as a technical note in an upcoming issue of the Philippine Journal of Science."
+  },
+  {
+    "id": 3,
+    "title": "Field Work Season Begins: Diving Surveys in Loon and Jagna",
+    "date": "2024-08-10",
+    "category": "Field Work",
+    "excerpt": "JAZC researchers have commenced the annual diving survey season, conducting SCUBA-based underwater transect surveys across multiple reef sites in Loon and Jagna municipalities in southern Bohol.",
+    "content": "The JAZC Marine Science Research Center officially kicked off its 2024 field work season this August. A team of four researchers and two student assistants are conducting SCUBA-based transect surveys at eight designated reef monitoring sites across Loon and Jagna. The surveys will collect data on coral cover, fish assemblages, and benthic macroinvertebrate communities. Preliminary observations suggest improved coral recovery at three sites previously affected by bleaching events. Field work is scheduled to continue through October 2024."
+  }
+]
