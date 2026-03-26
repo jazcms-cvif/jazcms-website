@@ -1,0 +1,8 @@
+JAZC Marine Science Research Center Website
+============================================
+
+Live URL: https://jazcms-cvif.github.io/jazcms-website/
+
+GitHub Repository: https://github.com/jazcms-cvif/jazcms-website
+
+Hosted via GitHub Pages — deploys automatically on every push to the main branch.
