@@ -45,6 +45,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('jazc-logo.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 480px 480px;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+
 img {
   max-width: 100%;
   display: block;
