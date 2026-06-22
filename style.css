@@ -21,7 +21,7 @@
   --radius:        10px;
   --radius-sm:     6px;
   --transition:    0.3s ease;
-  --nav-height:    70px;
+  --nav-height:    84px;
   --font:          'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -210,8 +210,8 @@ h4 { font-size: 1.05rem; }
 }
 
 .nav-brand .brand-icon {
-  width: 44px;
-  height: 44px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   object-fit: contain;
   flex-shrink: 0;
@@ -224,14 +224,14 @@ h4 { font-size: 1.05rem; }
 }
 
 .nav-brand .brand-name {
-  font-size: 1rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--secondary);
   letter-spacing: 0.5px;
 }
 
 .nav-brand .brand-sub {
-  font-size: 0.68rem;
+  font-size: 0.9rem;
   color: var(--primary-light);
   letter-spacing: 0.5px;
   font-weight: 400;
