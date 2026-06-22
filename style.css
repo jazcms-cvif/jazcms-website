@@ -40,7 +40,7 @@ html {
 body {
   font-family: var(--font);
   color: var(--body-text);
-  background: var(--secondary);
+  background: url('bg.png') center top / cover fixed;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
@@ -317,8 +317,8 @@ h4 { font-size: 1.05rem; }
 .hero {
   min-height: calc(100vh - var(--nav-height));
   background:
-    linear-gradient(160deg, rgba(3,4,94,0.88) 0%, rgba(0,119,182,0.75) 60%, rgba(0,180,216,0.6) 100%),
-    radial-gradient(ellipse at top right, #00b4d8 0%, #0077b6 40%, #03045e 100%);
+    linear-gradient(160deg, rgba(3,4,94,0.72) 0%, rgba(0,119,182,0.60) 60%, rgba(0,180,216,0.50) 100%),
+    url('bg.png') center center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
